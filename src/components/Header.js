@@ -28,7 +28,7 @@ const H1 = styled.h1`
 
 const Header = () => (
   <HeaderStyle>
-    <H1>Sweet Pumpkins</H1>
+    <H1>Re-Movies</H1>
   </HeaderStyle>
 );
 
