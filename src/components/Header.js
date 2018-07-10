@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import Wow from "./Wow";
 
 const HeaderStyle = styled.header`
   display: flex;
   height: 80px;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   border-bottom: 1px solid #a9adac;
 `;
@@ -28,7 +30,9 @@ const H1 = styled.h1`
 
 const Header = () => (
   <HeaderStyle>
-    <H1>Re-Movies</H1>
+    <Wow>
+      <H1>Re-Movies</H1>
+    </Wow>
   </HeaderStyle>
 );
 

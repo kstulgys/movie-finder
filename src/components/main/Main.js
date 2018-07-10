@@ -12,9 +12,13 @@ class Main extends React.Component {
     movies: [],
     total_pages: 1,
     page: 1,
-    url: `https://api.themoviedb.org/3/genre/movie/list?api_key=651925d45022d1ae658063b443c99784&language=en-US`,
-    moviesUrl: `https://api.themoviedb.org/3/discover/movie?api_key=651925d45022d1ae658063b443c99784&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`,
-    genre: "Comedy",
+    url: `https://api.themoviedb.org/3/genre/movie/list?api_key=${
+      process.env.REACT_APP_TMDB_API_KEY
+    }&language=en-US`,
+    moviesUrl: `https://api.themoviedb.org/3/discover/movie?api_key=${
+      process.env.REACT_APP_TMDB_API_KEY
+    }&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`,
+    genre: "Action",
     genres: [],
     year: {
       label: "year",
@@ -42,29 +46,34 @@ class Main extends React.Component {
   componentDidMount() {
     const savedState = this.getStateFromLocalStorage();
     if (!savedState || (savedState && !savedState.movies.length)) {
+      this.setGenres();
       this.fetchMovies(this.state.moviesUrl);
     } else {
       this.setState({ ...savedState });
       this.generateUrl(savedState);
     }
+    console.log(this.state.genres);
   }
 
   componentWillUpdate(nextProps, nextState) {
-    this.saveStateToLocalStorage();
     if (this.state.moviesUrl !== nextState.moviesUrl) {
       this.fetchMovies(nextState.moviesUrl);
     }
     if (this.state.page !== nextState.page) {
       this.generateUrl(nextState);
     }
+    this.saveStateToLocalStorage();
   }
 
   onGenreChange = event => {
     this.setState({ genre: event.target.value });
   };
 
-  setGenres = genres => {
-    this.setState({ genres });
+  setGenres = () => {
+    fetch(this.state.url)
+      .then(response => response.json())
+      .then(data => this.setState({ genres: data.genres }))
+      .catch(error => console.log(error));
   };
 
   onChange = data => {
@@ -76,14 +85,16 @@ class Main extends React.Component {
     });
   };
 
-  generateUrl = params => {
-    const { genres, year, rating, runtime, page } = params;
-    const selectedGenre = genres.find(genre => genre.name === params.genre);
+  generateUrl = savedState => {
+    const { genres, year, rating, runtime, page } = savedState;
+    console.log(genres);
+    const selectedGenre = genres.find(genre => genre.name === savedState.genre);
     const genreId = selectedGenre.id;
+    // console.log(genreId);
 
     const moviesUrl =
       `https://api.themoviedb.org/3/discover/movie?` +
-      `api_key=651925d45022d1ae658063b443c99784&` +
+      `api_key=${process.env.REACT_APP_TMDB_API_KEY}&` +
       `language=en-US&sort_by=popularity.desc&` +
       `with_genres=${genreId}&` +
       `primary_release_date.gte=${year.value.min}-01-01&` +
@@ -98,16 +109,16 @@ class Main extends React.Component {
   };
 
   onSearchButtonClick = () => {
-    this.setState({ page: 1 });
+    this.setState({ movies: [], page: 1 });
     this.generateUrl(this.state);
   };
 
-  saveStateToLocalStorage = params => {
-    localStorage.setItem("sweetpumpkins.params", JSON.stringify(this.state));
+  saveStateToLocalStorage = () => {
+    localStorage.setItem("removies", JSON.stringify(this.state));
   };
 
   getStateFromLocalStorage = () => {
-    return JSON.parse(localStorage.getItem("sweetpumpkins.params"));
+    return JSON.parse(localStorage.getItem("removies"));
   };
 
   fetchMovies = url => {

@@ -1,6 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+// import Wow from "../../Wow";
+
+const Thumbnail = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  cursor: pointer;
+  text-decoration: none;
+`;
+
+// .thumbnail {
+// display: flex;
+// flex - direction: column;
+// flex - grow: 1;
+// cursor: pointer;
+// text - decoration: none;
+// }
 
 const MovieListItem = ({
   movie: { id, title, poster_path, release_date, vote_average }
@@ -8,7 +25,7 @@ const MovieListItem = ({
   const imgUrl = `https://image.tmdb.org/t/p/w342/${poster_path}`;
   return (
     <ItemUl>
-      <Link to={`/movies/${id}`} className="thumbnail">
+      <Thumbnail to={`/movies/${id}`} className="thumbnail">
         <ListItem>
           <Img src={imgUrl} alt={title} />
           <Description>
@@ -25,7 +42,7 @@ const MovieListItem = ({
             </Details>
           </Description>
         </ListItem>
-      </Link>
+      </Thumbnail>
     </ItemUl>
   );
 };

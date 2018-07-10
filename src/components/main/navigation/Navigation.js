@@ -12,12 +12,12 @@ const Container = styled.div`
 `;
 
 class Navigation extends React.Component {
-  componentDidMount() {
-    fetch(this.props.url)
-      .then(response => response.json())
-      .then(data => this.props.setGenres(data.genres))
-      .catch(error => console.log(error));
-  }
+  // async componentDidMount() {
+  //   await fetch(this.props.url)
+  //     .then(response => response.json())
+  //     .then(data => this.props.setGenres(data.genres))
+  //     .catch(error => console.log(error));
+  // }
   render() {
     const {
       genre,
