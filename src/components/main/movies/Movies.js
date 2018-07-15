@@ -6,34 +6,37 @@ import Wow from "../../Wow";
 
 const Container = styled.ul`
   display: flex;
-  flex-basis: 80%;
+  flex-basis: 70%;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding: 20px 0;
+  padding: 20px 0px;
   margin: 0;
+  /* border: 5px solid red; */
+  min-height: 100vh;
 `;
 
 const Pagination = styled.div`
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   padding: 40px 20px;
+  /* border: 5px solid red; */
 `;
 
 const Movies = ({ movies, page, onPageIncrease, onPageDecrease }) => {
-  let sec = -0.1;
+  let sec = 0.5;
   const renderList = movies.map(movie => {
     sec += 0.1;
     return (
-      <Wow anim="fadeInRight" delay={`${sec}s`} duration="1s" offset="0">
-        <MovieListItem key={movie.id} movie={movie} />
-      </Wow>
+      // <Wow anim="fadeInRight" delay={`${sec}s`} duration="1s" offset="0">
+      <MovieListItem delay={sec} key={movie.id} movie={movie} />
     );
   });
 
   return (
     <div>
       <Container>{renderList}</Container>
-      <Wow anim="fadeInDown" duration="3s" delay="1s">
+      <Wow anim="fadeInUp" duration="2s" delay="0s">
         {movies.length > 15 && (
           <Pagination>
             <Button onClick={onPageDecrease}>Previous</Button>

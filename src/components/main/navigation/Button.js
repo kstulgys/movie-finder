@@ -15,15 +15,17 @@ const Container = styled.div`
 
 const StyledButton = styled.button`
   padding: 10px 21px;
-  background: #e27a3f;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 1rem;
+  background: #0040ff;
+  color: white;
+  font-size: 1.25rem;
   cursor: pointer;
   transition: color 0.2s ease-out;
   outline: 0;
   border: 0;
+  flex: 1
   :hover {
     color: white;
+    font-weight: 600;
   }
 `;
 

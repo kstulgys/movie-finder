@@ -8,14 +8,22 @@ import "react-input-range/lib/css/index.css";
 const SliderStyle = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   max-width: 300px;
   padding-left: 15px;
-  // padding: 40px;
+
+  span {
+    color: white;
+    font-size: 1rem;
+    font: inherit;
+  }
+  /* padding: 40px; */
 `;
 
 const Label = styled.label`
-  margin: 30px 0 30px -10px;
-  color: #555;
+  margin: 60px 0 25px 0;
+  color: white;
+  font-size: 1.5rem;
 `;
 
 class Slider extends React.Component {

@@ -6,33 +6,20 @@ const HeaderStyle = styled.header`
   display: flex;
   height: 80px;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
-  border-bottom: 1px solid #a9adac;
+  margin-top: 3rem;
 `;
-// header {
-// display: flex;
-// height: 80px;
-// justify - content: center;
-// align - items: center;
-// border - bottom: 1px solid #a9adac;
-// }
 
 const H1 = styled.h1`
-  font-size: 2rem;
-  color: #e27a3f;
+  font-size: 2.5rem;
+  color: white;
 `;
-
-// header h1 {
-// font - size: 2rem;
-// color: #e27a3f;
-// }
 
 const Header = () => (
   <HeaderStyle>
-    <Wow>
-      <H1>Re-Movies</H1>
-    </Wow>
+    <H1 className="wow fadeInDown" data-wow-duration="2s">
+      Re-Movies
+    </H1>
   </HeaderStyle>
 );
 

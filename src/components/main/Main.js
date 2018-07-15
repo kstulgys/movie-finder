@@ -3,10 +3,6 @@ import Movies from "./movies/Movies";
 import Navigation from "./navigation/Navigation";
 import styled from "styled-components";
 
-const Container = styled.div`
-  display: flex;
-`;
-
 class Main extends React.Component {
   state = {
     movies: [],
@@ -21,21 +17,21 @@ class Main extends React.Component {
     genre: "Action",
     genres: [],
     year: {
-      label: "year",
+      label: "Year",
       min: 1990,
       max: 2020,
       step: 1,
       value: { min: 2000, max: 2018 }
     },
     rating: {
-      label: "rating",
+      label: "Rating",
       min: 0,
       max: 10,
       step: 1,
       value: { min: 8, max: 10 }
     },
     runtime: {
-      label: "runtime",
+      label: "Runtime",
       min: 0,
       max: 300,
       step: 15,
@@ -128,8 +124,8 @@ class Main extends React.Component {
       .catch(error => console.log(error));
   };
 
-  storeMovies = data => {
-    const movies = data.results.map(result => {
+  storeMovies = async data => {
+    const movies = await data.results.map(result => {
       const {
         vote_count,
         id,
@@ -158,6 +154,11 @@ class Main extends React.Component {
     if (nextPage <= total_pages) {
       this.setState({ page: nextPage });
     }
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
   };
 
   onPageDecrease = () => {
@@ -165,6 +166,11 @@ class Main extends React.Component {
     if (nextPage > 0) {
       this.setState({ page: nextPage });
     }
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
   };
   render() {
     return (
@@ -188,3 +194,11 @@ class Main extends React.Component {
 }
 
 export default Main;
+
+const Container = styled.div`
+  display: flex;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+`;

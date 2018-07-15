@@ -4,13 +4,6 @@ import Selection from "./Selection";
 import Slider from "./Slider";
 import Button from "./Button";
 
-const Container = styled.div`
-  height: 200px;
-  flex-basis: 20%;
-  min-width: 300px;
-  padding: 40px;
-`;
-
 class Navigation extends React.Component {
   // async componentDidMount() {
   //   await fetch(this.props.url)
@@ -30,7 +23,11 @@ class Navigation extends React.Component {
       onSearchButtonClick
     } = this.props;
     return (
-      <Container>
+      <Container
+        className="wow fadeInLeft"
+        data-wow-duration="3s"
+        data-wow-delay="1s"
+      >
         <Selection
           genre={genre}
           genres={genres}
@@ -41,9 +38,7 @@ class Navigation extends React.Component {
         <Slider data={runtime} onChange={onChange} />
         <br />
         <br />
-
         <br />
-
         <Button onClick={onSearchButtonClick}>Search</Button>
       </Container>
     );
@@ -51,3 +46,11 @@ class Navigation extends React.Component {
 }
 
 export default Navigation;
+
+const Container = styled.div`
+  height: auto;
+  flex-basis: calc(30%-40px);
+  min-width: 350px;
+  padding: 40px;
+  /* border: 5px solid red; */
+`;

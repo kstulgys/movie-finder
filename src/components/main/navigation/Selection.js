@@ -4,6 +4,7 @@ import styled from "styled-components";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1;
 `;
 // .selection {
 //   display: flex;
@@ -13,7 +14,8 @@ const Container = styled.div`
 
 const Label = styled.label`
   margin: 0 0 10px 4px;
-  color: #555;
+  color: white;
+  font-size: 1.5rem;
 `;
 
 // .selection label {
@@ -23,6 +25,7 @@ const Label = styled.label`
 
 const Select = styled.select`
   max-width: 150px;
+  flex: 1;
 `;
 
 // .selection select {
