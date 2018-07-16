@@ -83,7 +83,7 @@ class Main extends React.Component {
 
   generateUrl = savedState => {
     const { genres, year, rating, runtime, page } = savedState;
-    console.log(genres);
+    // console.log(genres);
     const selectedGenre = genres.find(genre => genre.name === savedState.genre);
     const genreId = selectedGenre.id;
     // console.log(genreId);

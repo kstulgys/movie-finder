@@ -1,15 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-// import Wow from "../../Wow";
-
-// .thumbnail {
-// display: flex;
-// flex - direction: column;
-// flex - grow: 1;
-// cursor: pointer;
-// text - decoration: none;
-// }
 
 const MovieListItem = ({
   movie: { id, title, poster_path, release_date, vote_average },
@@ -21,7 +12,7 @@ const MovieListItem = ({
       className="wow bounceInUp"
       data-wow-duration="1s"
       data-wow-delay={`${delay}s`}
-      data-wow-offset="-400"
+      // data-wow-offset="-400"
     >
       <Thumbnail to={`/movies/${id}`}>
         <Img src={imgUrl} alt={title} />

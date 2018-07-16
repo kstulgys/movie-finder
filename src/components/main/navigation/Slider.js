@@ -8,10 +8,8 @@ import "react-input-range/lib/css/index.css";
 const SliderStyle = styled.div`
   display: flex;
   flex-direction: column;
-  // align-items: center;
   max-width: 300px;
-  // padding-left: 15px;
-
+// margin-top: 30px;
   span {
     color: white;
     font-size: 1rem;
@@ -21,7 +19,7 @@ const SliderStyle = styled.div`
 `;
 
 const Label = styled.div`
-  margin-top: 20px
+  margin-top: 5px
   color: white;
   display: flex;
   align-items: center;
@@ -56,18 +54,19 @@ class Slider extends React.Component {
         value: this.state.values
       });
     }
-    console.log(this.state.values);
+    // console.log(this.state.values);
   };
-
 
   render() {
     const { min, max, step, value, label } = this.props.data;
     return (
-      <SliderStyle className="wow fadeIn"
+      <SliderStyle
+        className="wow fadeIn"
         data-wow-duration="4s"
-        data-wow-delay="2s">
+        data-wow-delay="2s"
+      >
         <Label>
-          {label === 'runtime' ? <p> {label} (min) </p> : <p> {label} </p>}
+          {label === "runtime" ? <p> {label} (min) </p> : <p> {label} </p>}
           <div style={{ display: "flex" }}>
             <p>{value.min}</p> <p>-</p> <p>{value.max}</p>
           </div>
@@ -92,11 +91,10 @@ class Slider extends React.Component {
           onChange={this.handleChange}
         />
       </SliderStyle>
-
     );
   }
 }
 
-        //  style={{position: 'relative', top: -25, zIndex: 0}}
+//  style={{position: 'relative', top: -25, zIndex: 0}}
 
 export default Slider;

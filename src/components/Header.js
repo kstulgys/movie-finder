@@ -4,10 +4,14 @@ import Wow from "./Wow";
 
 const HeaderStyle = styled.header`
   display: flex;
-  height: 80px;
+  // height: 70px;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
+  @media screen and (max-width: 600px) {
+    margin-top: 1rem;
+    margin-bottom: -3rem;
+  }
 `;
 
 const H1 = styled.h1`
