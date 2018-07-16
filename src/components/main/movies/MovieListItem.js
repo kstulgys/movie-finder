@@ -37,11 +37,11 @@ const MovieListItem = ({
 export default MovieListItem;
 
 const ItemUl = styled.div`
-  flex-basis: 85vw;
+  flex-basis: 80vw;
   display: flex;
   flex-direction: column;
   background: white;
-  margin: 2.5% 0px;
+  margin: 4% 0;
   box-shadow: 0 10px 28px -7px rgba(0, 0, 0, 0.1);
   /* border: 5px solid yellow; */
 

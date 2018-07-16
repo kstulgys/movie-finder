@@ -45,8 +45,7 @@ export default Navigation;
 
 const Container = styled.div`
   height: auto;
-  flex-basis: calc(30%-40px);
-  min-width: 350px;
-  padding: 40px;
-  /* border: 5px solid red; */
+  min-width: 300px;
+  padding: 20px 35px;
+  // margin: 20px auto;
 `;
