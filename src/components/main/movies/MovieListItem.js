@@ -12,7 +12,7 @@ const MovieListItem = ({
       className="wow bounceInUp"
       data-wow-duration="1s"
       data-wow-delay={`${delay}s`}
-      // data-wow-offset="-400"
+      data-wow-offset="-300"
     >
       <Thumbnail to={`/movies/${id}`}>
         <Img src={imgUrl} alt={title} />

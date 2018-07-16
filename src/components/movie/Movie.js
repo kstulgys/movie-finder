@@ -45,30 +45,32 @@ class Movie extends Component {
         ) : (
           <MoviePage>
             <MovieImage style={backgroundStyle} />
-            <MovieDetails>
-              <MovieHeader>
-                {title}
-                <span>({releaseYear})</span>
-              </MovieHeader>
-              <Genres>
-                {genres.map((genre, index) => (
-                  <div key={genre.id}>
-                    <span>{genre.name}</span>
-                    {index < genres.length - 1 && <Separator>|</Separator>}
-                  </div>
-                ))}
-              </Genres>
-              <h5>
-                Rating:
-                <span>{vote_average}</span>
-              </h5>
-              <h5>
-                Runtime:
-                <span>{`${runtime} min`}</span>
-              </h5>
-              <h4>Overview</h4>
-              <p>{overview}</p>
-            </MovieDetails>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <MovieDetails>
+                <MovieHeader>
+                  {title}
+                  <span>({releaseYear})</span>
+                </MovieHeader>
+                <Genres>
+                  {genres.map((genre, index) => (
+                    <div key={genre.id}>
+                      <span>{genre.name}</span>
+                      {index < genres.length - 1 && <Separator>|</Separator>}
+                    </div>
+                  ))}
+                </Genres>
+                <h5>
+                  Rating:
+                  <span>{vote_average}</span>
+                </h5>
+                <h5>
+                  Runtime:
+                  <span>{`${runtime} min`}</span>
+                </h5>
+                <h4>Overview</h4>
+                <p>{overview}</p>
+              </MovieDetails>
+            </div>
           </MoviePage>
         )}
       </div>
@@ -76,140 +78,65 @@ class Movie extends Component {
   }
 }
 
-/* Movie.css */
-
-// .movie - page {
-//   display: flex;
-//   flex - direction: column;
-// }
-
-// .movie - page h5 {
-//   color: #888;
-//   font - weight: normal;
-//   line - height: 1.25rem;
-// }
-
-// .movie - page h5 span {
-//   font - size: inherit;
-//   font - weight: normal;
-//   color: black;
-//   padding - left: 1rem;
-// }
-
-// .movie - page h4 {
-//   margin: 0;
-//   font - size: 1.25rem;
-//   line - height: 2;
-// }
-
-// .movie - page p {
-//   color: #888;
-//   line - height: 1.5;
-// }
-
-// .movie-page .movie-image {
-//   flex - basis: 100 %;
-//   height: 575px;
-//   background - size: cover;
-//   background - position: center center;
-// }
-
-// .movie - page.movie - details {
-//   display: flex;
-//   flex - direction: column;
-//   max - width: 800px;
-//   margin: 20px auto 60px auto;
-// }
-
-// .movie - page.movie - details h1 {
-//   line - height: 1.5em;
-// }
-
-// .movie - page.movie - details h1 span {
-//   font - size: inherit;
-//   font - weight: normal;
-//   padding - left: 1rem;
-//   color: #bbb;
-//   line - height: inherit;
-// }
-
-// .movie - page.genres {
-//   display: flex;
-//   margin - bottom: 1rem;
-// }
-
-// .movie - page.genres span {
-//   font - weight: normal;
-// }
-
-// .movie - page.separator {
-//   color: lightgray;
-//   padding: 0 10px;
-// }
-
 export default Movie;
-
-const MoviePage = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  h5 {
-    color: #888;
-    font-weight: normal;
-    line-height: 1.5rem;
-  }
-
-  h5 span {
-    font-size: inherit;
-    font-weight: normal;
-    color: black;
-    padding-left: 1rem;
-  }
-
-  h4 {
-    margin: 0;
-    font-size: 1.5rem;
-    line-height: 3em;
-  }
-
-  p {
-    color: #888;
-    line-height: 1.5;
-  }
-`;
 
 const MovieImage = styled.div`
   flex-basis: 100 %;
-  height: 575px;
+  height: 60vh;
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
 `;
 
-const MovieDetails = styled.div`
+const MoviePage = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 800px;
-  margin: 4em auto 100px auto;
+  color: white;
+  h5 {
+    color: inherit;
+    font-weight: normal;
+    line-height: 1rem;
+  }
+
+  h5 span {
+    font-size: inherit;
+
+    font-weight: normal;
+    color: inherit;
+    padding-left: 1rem;
+  }
+
+  h4 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    line-height: 1rem;
+  }
+
+  p {
+    color: inherit;
+    line-height: 1.5rem;
+  }
 `;
 
 const MovieHeader = styled.h1`
-  line-height: 1.5em;
+  line-height: 2.25rem;
   font-size: 2em;
   span {
     font-size: inherit;
     font-weight: normal;
     padding-left: 1rem;
-    color: #bbb;
-    line-height: inherit;
+    color: white;
+    line-height: 1rem;
   }
 `;
 
 const Genres = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 1.5rem;
   span {
+    line-height: 1.5rem;
     font-weight: normal;
   }
 `;
@@ -217,4 +144,12 @@ const Genres = styled.div`
 const Separator = styled.span`
   color: lightgray;
   padding: 0 10px;
+`;
+
+const MovieDetails = styled.div`
+  justify-content: "center";
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 1rem 20px;
 `;

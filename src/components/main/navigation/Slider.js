@@ -77,7 +77,7 @@ class Slider extends React.Component {
           type="range"
           min={min}
           max={max}
-          value={this.state.values.min}
+          value={value.min}
           step={step}
           onChange={this.handleChange}
         />
@@ -86,7 +86,7 @@ class Slider extends React.Component {
           type="range"
           min={min}
           max={max}
-          value={this.state.values.max}
+          value={value.max}
           step={step}
           onChange={this.handleChange}
         />

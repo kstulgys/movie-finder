@@ -3,6 +3,7 @@ import Movies from "./movies/Movies";
 import Navigation from "./navigation/Navigation";
 import styled from "styled-components";
 
+var maxYear = new Date().getFullYear() + 1;
 class Main extends React.Component {
   state = {
     movies: [],
@@ -19,7 +20,7 @@ class Main extends React.Component {
     year: {
       label: "year",
       min: 1990,
-      max: 2020,
+      max: maxYear,
       step: 1,
       value: { min: 2000, max: 2018 }
     },
@@ -41,7 +42,7 @@ class Main extends React.Component {
 
   componentDidMount() {
     const savedState = this.getStateFromLocalStorage();
-    if (!savedState || (savedState && !savedState.movies.length)) {
+    if (!savedState) {
       this.setGenres();
       this.fetchMovies(this.state.moviesUrl);
     } else {
@@ -85,8 +86,7 @@ class Main extends React.Component {
     const { genres, year, rating, runtime, page } = savedState;
     // console.log(genres);
     const selectedGenre = genres.find(genre => genre.name === savedState.genre);
-    const genreId = selectedGenre.id;
-    // console.log(genreId);
+    const genreId = selectedGenre.id || 28;
 
     const moviesUrl =
       `https://api.themoviedb.org/3/discover/movie?` +

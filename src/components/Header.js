@@ -10,7 +10,8 @@ const HeaderStyle = styled.header`
   margin-top: 2rem;
   @media screen and (max-width: 600px) {
     margin-top: 1rem;
-    margin-bottom: -3rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 `;
 
