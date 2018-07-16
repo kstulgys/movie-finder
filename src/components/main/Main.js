@@ -17,21 +17,21 @@ class Main extends React.Component {
     genre: "Action",
     genres: [],
     year: {
-      label: "Year",
+      label: "year",
       min: 1990,
       max: 2020,
       step: 1,
       value: { min: 2000, max: 2018 }
     },
     rating: {
-      label: "Rating",
+      label: "rating",
       min: 0,
       max: 10,
       step: 1,
       value: { min: 8, max: 10 }
     },
     runtime: {
-      label: "Runtime",
+      label: "runtime",
       min: 0,
       max: 300,
       step: 15,

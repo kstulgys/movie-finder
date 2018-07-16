@@ -5,6 +5,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  // margin: 0 0 5px 0;
 `;
 // .selection {
 //   display: flex;
@@ -13,9 +14,9 @@ const Container = styled.div`
 // }
 
 const Label = styled.label`
-  margin: 0 0 10px 4px;
+  margin: 0 0 10px 0;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 `;
 
 // .selection label {
@@ -33,7 +34,11 @@ const Select = styled.select`
 // }
 
 const Selection = ({ genres, genre, onGenreChange }) => (
-  <Container>
+  <Container
+    className="wow bounceInLeft"
+    data-wow-duration="1s"
+    data-wow-delay="1s"
+  >
     <Label>Genre</Label>
     <Select value={genre} onChange={onGenreChange}>
       {genres.map(genre => <option value={genre.name}>{genre.name}</option>)}

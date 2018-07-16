@@ -23,11 +23,7 @@ class Navigation extends React.Component {
       onSearchButtonClick
     } = this.props;
     return (
-      <Container
-        className="wow fadeInLeft"
-        data-wow-duration="3s"
-        data-wow-delay="1s"
-      >
+      <Container>
         <Selection
           genre={genre}
           genres={genres}
