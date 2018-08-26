@@ -1,40 +1,40 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import React from "react"
+import { Link } from "react-router-dom"
+import styled from "styled-components"
 
 const MovieListItem = ({
-  movie: { id, title, poster_path, release_date, vote_average },
-  delay
+	movie: { id, title, poster_path, release_date, vote_average },
+	delay
 }) => {
-  const imgUrl = `https://image.tmdb.org/t/p/w342/${poster_path}`;
-  return (
-    <ItemUl
-      className="wow bounceInUp"
-      data-wow-duration="1s"
-      data-wow-delay={`${delay}s`}
-      data-wow-offset="-300"
-    >
-      <Thumbnail to={`/movies/${id}`}>
-        <Img src={imgUrl} alt={title} />
-        <Description>
-          <H2>{title}</H2>
-          <Details>
-            <Year>
-              <Title>Year</Title>
-              <Span>{release_date}</Span>
-            </Year>
-            <Rating>
-              <Title>Rating</Title>
-              <Span>{vote_average}</Span>
-            </Rating>
-          </Details>
-        </Description>
-      </Thumbnail>
-    </ItemUl>
-  );
-};
+	const imgUrl = `https://image.tmdb.org/t/p/w342/${poster_path}`
+	return (
+		<ItemUl
+			className="wow bounceInUp"
+			// data-wow-duration="1s"
+			data-wow-delay={`${delay}s`}
+			// data-wow-offset="-300"
+			style={{ visibility: "hidden" }}>
+			<Thumbnail to={`/movies/${id}`}>
+				<Img src={imgUrl} alt={title} />
+				<Description>
+					<H2>{title}</H2>
+					<Details>
+						<Year>
+							<Title>Year</Title>
+							<Span>{release_date}</Span>
+						</Year>
+						<Rating>
+							<Title>Rating</Title>
+							<Span>{vote_average}</Span>
+						</Rating>
+					</Details>
+				</Description>
+			</Thumbnail>
+		</ItemUl>
+	)
+}
 
-export default MovieListItem;
+export default MovieListItem
 
 const ItemUl = styled.div`
   flex-basis: 80vw;
@@ -68,7 +68,7 @@ const ItemUl = styled.div`
     flex-basis: 22%;
     margin: 1.5% 0px;
   }
-`;
+`
 
 const Thumbnail = styled(Link)`
   display: flex;
@@ -77,11 +77,11 @@ const Thumbnail = styled(Link)`
   cursor: pointer;
   text-decoration: none;
   /* border: 5px solid green; */
-`;
+`
 
 const Img = styled.img`
   width: 100%;
-`;
+`
 
 const Description = styled.div`
   display: flex;
@@ -89,41 +89,41 @@ const Description = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 10px;
-`;
+`
 
 const H2 = styled.h2`
   color: #555;
   font: bold;
   margin: 20px;
-`;
+`
 
 const Details = styled.div`
   display: flex;
   margin-top: auto;
   justify-content: space-between;
-`;
+`
 
 const Span = styled.span`
   color: #555;
   font: 0.8rem;
   font-weight: bold;
-`;
+`
 
 const Year = styled.div`
   display: flex;
   flex-direction: column;
-`;
+`
 
 const Rating = Year.extend`
   align-items: flex-end;
-`;
+`
 
 const Title = styled.span`
   color: #aaa;
   margin-bottom: 5px;
   font-size: 0.75rem;
   font-weight: normal;
-`;
+`
 
 // .movie - item {
 //   flex - basis: 22 %;
