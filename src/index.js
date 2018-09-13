@@ -1,7 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import styled, { ThemeProvider, injectGlobal } from "styled-components";
-import App from "./components/App";
+import React from "react"
+import ReactDOM from "react-dom"
+import styled, { ThemeProvider, injectGlobal } from "styled-components"
+import App from "./components/App"
 
 injectGlobal`
   @font-face {
@@ -34,7 +34,7 @@ injectGlobal`
       img {
   max-width:100%;
 }
-`;
+`
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+const rootElement = document.getElementById("root")
+ReactDOM.render(<App />, rootElement)

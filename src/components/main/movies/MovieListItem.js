@@ -3,17 +3,11 @@ import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 const MovieListItem = ({
-	movie: { id, title, poster_path, release_date, vote_average },
-	delay
+	movie: { id, title, poster_path, release_date, vote_average, key }
 }) => {
 	const imgUrl = `https://image.tmdb.org/t/p/w342/${poster_path}`
 	return (
-		<ItemUl
-			className="wow bounceInUp"
-			// data-wow-duration="1s"
-			data-wow-delay={`${delay}s`}
-			// data-wow-offset="-300"
-			style={{ visibility: "hidden" }}>
+		<ItemUl>
 			<Thumbnail to={`/movies/${id}`}>
 				<Img src={imgUrl} alt={title} />
 				<Description>
@@ -37,11 +31,13 @@ const MovieListItem = ({
 export default MovieListItem
 
 const ItemUl = styled.div`
-  flex-basis: 80vw;
+  // flex-basis: 30%;
   display: flex;
   flex-direction: column;
   background: white;
   margin: 4% 0;
+  align-self: stretch;
+
   box-shadow: 0 10px 28px -7px rgba(0, 0, 0, 0.1);
   /* border: 5px solid yellow; */
 
@@ -85,10 +81,11 @@ const Img = styled.img`
 
 const Description = styled.div`
   display: flex;
-  flex: 1 0 100%;
+  flex: 1 0 auto;
   flex-direction: column;
   justify-content: space-between;
   padding: 10px;
+  // height: auto;
 `
 
 const H2 = styled.h2`
@@ -124,58 +121,3 @@ const Title = styled.span`
   font-size: 0.75rem;
   font-weight: normal;
 `
-
-// .movie - item {
-//   flex - basis: 22 %;
-//   display: flex;
-//   flex - direction: column;
-//   list - style: none;
-//   box - sizing: border - box;
-//   margin: 1.5 %;
-//   border: 1px solid #eee;
-// }
-
-// .movie - item img {
-//   width: 100 %;
-// }
-
-// .movie - description {
-//   display: flex;
-//   flex - direction: column;
-//   flex - grow: 1;
-//   justify - content: space - between;
-//   padding: 10px;
-// }
-
-// .movie - description h2 {
-//   color: #555;
-//   font - weight: bold;
-//   margin - bottom: 20px;
-// }
-
-// .movie - details {
-//   display: flex;
-//   justify - content: space - between;
-// }
-
-// .movie - details span {
-//   color: #555;
-//   font - size: 0.8rem;
-//   font - weight: bold;
-// }
-
-// .movie - year, .movie - rating {
-//   display: flex;
-//   flex - direction: column;
-// }
-
-// .movie - rating {
-//   align - items: flex - end;
-// }
-
-// .movie - year.title, .movie - rating.title {
-//   color: #aaa;
-//   margin - bottom: 5px;
-//   font - size: 0.65rem;
-//   font - weight: normal;
-// }
